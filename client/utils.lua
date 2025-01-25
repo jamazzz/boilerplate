@@ -12,7 +12,7 @@ end
 
 local currentResourceName = GetCurrentResourceName()
 
-local debugIsEnabled = GetConvarInt(('%s-debugMode'):format(currentResourceName), 0) == 1
+local debugIsEnabled = 1 --GetConvarInt(('%s-debugMode'):format(currentResourceName), 0) == 1
 
 --- A simple debug print function that is dependent on a convar
 --- will output a nice prettfied message if debugMode is on

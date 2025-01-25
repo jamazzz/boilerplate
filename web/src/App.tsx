@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
-import { debugData } from "../utils/debugData";
-import { fetchNui } from "../utils/fetchNui";
+import "@/App.css";
+import { debugData } from "@/utils/debugData";
+import { fetchNui } from "@/utils/fetchNui";
+import { Button } from "@/components/ui/button.tsx";
 
-// This will set the NUI to visible if we are
-// developing in browser
 debugData([
   {
     action: "setVisible",
@@ -20,7 +19,6 @@ const ReturnClientDataComp: React.FC<ReturnClientDataCompProps> = ({
   data,
 }) => (
   <>
-    <h5>Returned Data:</h5>
     <pre>
       <code>{JSON.stringify(data, null)}</code>
     </pre>
@@ -53,9 +51,7 @@ const App: React.FC = () => {
     <div className="nui-wrapper">
       <div className="popup-thing">
         <div>
-          <h1>This is the NUI Popup!</h1>
-          <p>Exit with the escape key</p>
-          <button onClick={handleGetClientData}>Get Client Data</button>
+          <Button onClick={handleGetClientData}>Get Client Data</Button>
           {clientData && <ReturnClientDataComp data={clientData} />}
         </div>
       </div>

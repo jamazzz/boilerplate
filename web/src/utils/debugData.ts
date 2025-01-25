@@ -1,4 +1,4 @@
-import { isEnvBrowser } from "./misc";
+import { isEnvBrowser } from "@/utils/misc";
 
 interface DebugEvent<T = unknown> {
   action: string;
@@ -6,12 +6,9 @@ interface DebugEvent<T = unknown> {
 }
 
 /**
- * Emulates dispatching an event using SendNuiMessage in the lua scripts.
- * This is used when developing in browser
- *
- * @param events - The event you want to cover
- * @param timer - How long until it should trigger (ms)
- */
+* @param events - The event you want to cover
+* @param timer - How long until it should trigger (ms)
+**/
 export const debugData = <P>(events: DebugEvent<P>[], timer = 1000): void => {
   if (import.meta.env.MODE === "development" && isEnvBrowser()) {
     for (const event of events) {
